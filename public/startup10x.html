@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Example</title>
+    <link rel="stylesheet" href="styles/10xStyles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-column">
+
+            <div class="top-half">
+                <div class="logo-container">
+                    <img src="assets/10x-logo.png" alt="10x-Logo" class="logo">
+                </div>
+
+                <div class="bottom-half">
+                    <div id="nextVideoTitle"> <b>Coming Next:</b> Venture Capital "Moonshot" Startup Investment Strategy (versus angel investment strategy)</div>
+                    <img id="nextVideoThumbnail" src="" alt="Next Video Thumbnail">
+                </div>
+            </div>
+            
+            <div></div>
+
+            <div class="model-container">
+                <div id="frend-model-view">
+                    <canvas id=frend-canvas></canvas>
+                    <div id="frend-loading" class="hidden">
+                        <div class="loader"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-column">
+            <div class="main-content">
+                <div id="player"></div>
+                <img src="assets/powered-by-frend.ai.png" class="frend-logo">
+            </div>
+            <div class="bottom-content"></div>
+        </div>
+    </div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="scripts/10xScripts.js"></script>
+    <script src="scripts/lc.min.js"></script>
+    <script src="scripts/l.min.js"></script>
+    <script src="scripts/p.min.js"></script>
+    <script src="scripts/e.min.js"></script>
+    <script src="scripts/c2.min.js"></script>
+    <script src="scripts/c4.min.js"></script>
+    <script src="scripts/global-state.js"></script>
+    <script src="scripts/animate-stream.js?v=2.1"></script>
+    <script type="module" src="scripts/live-stream.js"></script>
+
+</body>
+
+</html>

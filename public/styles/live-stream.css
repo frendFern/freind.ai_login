@@ -1,0 +1,100 @@
+body{
+    background-color: #00a781;
+    font-family: "Press Start 2P", system-ui;
+}
+
+div{
+    border-radius: 5px;
+    padding:10px;
+    margin:10px;
+    font-size: 14px;
+}
+
+#frend-logo{
+    position: absolute;
+    left: 520px;
+}
+#frend-logo img{
+    height:50px;
+}
+#frend-chat ul{
+    padding:0;
+}
+#frend-chat ul li{
+    list-style-type:none;
+    padding-bottom:10px;
+}
+#frend-chat ol li{
+    padding-bottom:20px;
+}
+
+#frend-chat-mainstage{
+    width:100vw;
+    display:flex;
+}
+#frend-chat-lowerstage{
+    background-color: #00a781;
+}
+
+#frend-chat-rules{
+    width:25vw;
+}
+#frend-chat-rules{
+    background-color:#B9EDDD;
+}
+#frend-chat-art-holder{
+    width:50vw;
+    height:512px;
+}
+#frend-chat-messages{
+    background-color:#B9EDDD;
+    width:25vw;
+    height:250px;
+}
+#frend-chat-messages-box{
+    overflow-y: auto;
+    height: 130px;
+}
+
+#frend-chat-response-holder{
+    color: #B9EDDD;
+    position: absolute;
+    right: 19px;
+    bottom: 501px;
+    font-size: 13px;
+    width: 460px;
+    background: rgba(3, 122, 89, 0.5);
+    line-height: 17px;
+
+}
+#frend-chat-messages-holder{
+    font-size:10px;
+}
+.frend-user-msg,
+#frend-chat-messages-holder .frend-user-msg{
+    color: #44855a;
+}
+
+#frend-chat-lowerstage{
+    display:flex;
+}
+#frend-chat-lowerstage div{
+    background-color:#B9EDDD;
+}
+#frend-chat-lowerstage .frend-holder{
+    width:25vw;
+}
+#frend-chat-lowerstage .frend-holder .frend-holder-bubble{
+    height:60px;
+}
+
+#frend-model-view{
+    position: absolute;
+    bottom: -100px;
+    background: transparent !important;
+    right: -80px;
+}
+
+#frend-chat-messages-box li{
+    list-style-type: none;
+}

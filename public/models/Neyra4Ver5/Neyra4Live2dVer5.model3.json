@@ -1,0 +1,22 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Neyra4Live2dVer5.moc3",
+		"Textures": [
+			"Neyra4Live2dVer5.1024/texture_00.png"
+		],
+		"DisplayInfo": "Neyra4Live2dVer5.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": ["ParamMouthOpenY","ParamMouthForm"]
+		},
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": ["ParamEyeLOpen", "ParamEyeROpen"]
+		}
+	]
+}

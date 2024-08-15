@@ -1,0 +1,10 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Neyra2V1.moc3",
+		"Textures": [
+			"Neyra2V1.2048/texture_00.png"
+		],
+		"DisplayInfo": "Neyra2V1.cdi3.json"
+	}
+}

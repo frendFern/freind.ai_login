@@ -1,0 +1,41 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Neyra4Live2d.moc3",
+		"Textures": [
+			"Neyra4Live2d.2048/texture_00.png"
+		],
+		"DisplayInfo": "Neyra4Live2d.cdi3.json",
+		"Motions": {
+			"eyesClose": [
+			  {
+				"File": "CloseEyes.motion3.json"
+			  }
+			  
+			],
+			"eyesShine": [
+				{
+					"File": "EyeShine.motion3.json"
+				}
+			],
+			"eyesOpen":[
+				{
+					"File": "OpenEyes.motion3.json"
+				}
+
+			]
+		}
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": ["ParamMouthOpenY","ParamMouthForm"]
+		}
+	]
+}

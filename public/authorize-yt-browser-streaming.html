@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Connect to YouTube Live Stream API</title>
+</head>
+<body>
+    <h1>Connect to YouTube Live Stream API</h1>
+    <p>Click the button below to authorize access.</p>
+    <button id="authorizeButton">Authorize</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://apis.google.com/js/platform.js"></script>
+
+    <script type="text/javascript">
+        const clientId = '529876681057-0lqt26o5sjc3tn1b1gm84inc74aosh1r.apps.googleusercontent.com';
+
+        // Redirect URL can be configured in Google cloud console, under project name "Youtube Live Stream TesT" under frend.ai organization
+        const redirectUri = encodeURIComponent('https://timely.frend.ai/livestream-from-browser-to-yt.html'); // Must match one of your authorized redirect URIs
+        const scope = 'https://www.googleapis.com/auth/youtube.force-ssl';
+
+        document.getElementById('authorizeButton').onclick = function() {
+            const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&scope=${scope}`;
+            window.location.href = authUrl;
+        };
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,161 @@
+{
+  "Version": 3,
+  "FileReferences": {
+    "Moc": "Julius.moc3",
+    "Textures": [
+      "Julius.4096/texture_00.png"
+    ],
+    "Physics": null,
+    "Expressions": [],
+    "Motions": {
+      "": [
+        {
+          "File": "motions/act_bikkuri.motion3.json"
+        },
+        {
+          "File": "motions/act_bikkuri_w.motion3.json"
+        },
+        {
+          "File": "motions/act_egao.motion3.json"
+        },
+        {
+          "File": "motions/act_egao_w.motion3.json"
+        },
+        {
+          "File": "motions/act_hohoemu_w.motion3.json"
+        },
+        {
+          "File": "motions/act_ikaru.motion3.json"
+        },
+        {
+          "File": "motions/act_ikaru_w.motion3.json"
+        },
+        {
+          "File": "motions/act_nayamu.motion3.json"
+        },
+        {
+          "File": "motions/act_nayamu_w.motion3.json"
+        },
+        {
+          "File": "motions/act_normal_w.motion3.json"
+        },
+        {
+          "File": "motions/act_odoroku_w.motion3.json"
+        },
+        {
+          "File": "motions/act_tameiki.motion3.json"
+        },
+        {
+          "File": "motions/act_unazuku.motion3.json"
+        },
+        {
+          "File": "motions/add_select_C.motion3.json"
+        },
+        {
+          "File": "motions/add_select_L.motion3.json"
+        },
+        {
+          "File": "motions/add_select_R.motion3.json"
+        },
+        {
+          "File": "motions/face_aseru.motion3.json"
+        },
+        {
+          "File": "motions/face_aseru_w.motion3.json"
+        },
+        {
+          "File": "motions/face_aseru02.motion3.json"
+        },
+        {
+          "File": "motions/face_aseru02_w.motion3.json"
+        },
+        {
+          "File": "motions/face_bikkuri.motion3.json"
+        },
+        {
+          "File": "motions/face_bikkuri_w.motion3.json"
+        },
+        {
+          "File": "motions/face_egao.motion3.json"
+        },
+        {
+          "File": "motions/face_egao_w.motion3.json"
+        },
+        {
+          "File": "motions/face_hohoemu_w.motion3.json"
+        },
+        {
+          "File": "motions/face_ikaru.motion3.json"
+        },
+        {
+          "File": "motions/face_ikaru_w.motion3.json"
+        },
+        {
+          "File": "motions/face_metoji_w.motion3.json"
+        },
+        {
+          "File": "motions/face_metoji02_w.motion3.json"
+        },
+        {
+          "File": "motions/face_nayamu.motion3.json"
+        },
+        {
+          "File": "motions/face_nayamu_w.motion3.json"
+        },
+        {
+          "File": "motions/face_normal_w.motion3.json"
+        },
+        {
+          "File": "motions/face_normal02_w.motion3.json"
+        },
+        {
+          "File": "motions/face_odoroku_w.motion3.json"
+        },
+        {
+          "File": "motions/face_sakebu.motion3.json"
+        },
+        {
+          "File": "motions/face_sakebu_w.motion3.json"
+        },
+        {
+          "File": "motions/face_shinken_w.motion3.json"
+        },
+        {
+          "File": "motions/face_talk_large.motion3.json"
+        },
+        {
+          "File": "motions/face_talk_normal.motion3.json"
+        },
+        {
+          "File": "motions/face_talk_off.motion3.json"
+        },
+        {
+          "File": "motions/face_talk_small.motion3.json"
+        },
+        {
+          "File": "motions/face_tameiki.motion3.json"
+        },
+        {
+          "File": "motions/face_unazuku.motion3.json"
+        }
+      ]
+    }
+  },
+  "Groups": [
+    {
+      "Target": "Parameter",
+      "Name": "EyeBlink",
+      "Ids": [
+        "ParamEyeROpen",
+        "ParamEyeLOpen"
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Name": "LipSync",
+      "Ids": [
+        "ParamMouthOpenY"
+      ]
+    }
+  ]
+}

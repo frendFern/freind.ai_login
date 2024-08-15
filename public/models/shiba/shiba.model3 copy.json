@@ -1,0 +1,94 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "shiba.moc3",
+		"Textures": [
+			"shiba.2048/texture_00.png",
+			"shiba.2048/texture_01.png"
+		],
+		"Physics": "shiba.physics3.json",
+		"DisplayInfo": "shiba.cdi3.json",
+		"Expressions": [
+			{
+			  "Name": "aozame", //hat...
+			  "File": "expressions/aozame.exp3.json"
+			},
+			{
+			  "Name": "black", //color change
+			  "File": "expressions/black.exp3.json"
+			},
+			{
+			  "Name": "change_color", //color change
+			  "File": "expressions/change_color.exp3.json"
+			},
+			{
+			  "Name": "hawawa",
+			  "File": "expressions/hawawa.exp3.json"
+			},
+			{
+			  "Name": "hawawakirakira",
+			  "File": "expressions/hawawakirakira.exp3.json"
+			},
+			{
+			  "Name": "megane", //remove tie
+			  "File": "expressions/megane.exp3.json"
+			},
+			{
+			  "Name": "nekutai",//neck tie
+			  "File": "expressions/nekutai.exp3.json"
+			},
+			{
+			  "Name": "otamesi",//white
+			  "File": "expressions/otamesi.exp3.json"
+			},
+			{
+				"Name": "peach",
+				"File": "expressions/peach.exp3.json"
+			  },
+			  {
+				"Name": "smile",
+				"File": "expressions/smile.exp3.json"
+			  },{
+				"Name": "white",
+				"File": "expressions/white.exp3.json"
+			  },{
+				"Name": "zitome",
+				"File": "expressions/zitome.exp3.json"
+			  }
+		  ],
+		  "Motions": {
+			"Idle": [
+			  {
+				"File": "motion/effect.motion3.json"
+			  },
+			  {
+				"File": "motion/pause1.motion3.json"
+			  }
+			  
+			],
+			"Tap": [
+				{
+					"File": "motion/wavehands.motion3.json"
+				},
+				{
+					"File": "motion/taiki.motion3.json"
+				  }
+			]
+		  }
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": [
+				"ParamEyeROpen",
+				"ParamEyeLOpen"
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": ["ParamMouthOpenY","ParamMouthForm"]
+		}
+	]
+}

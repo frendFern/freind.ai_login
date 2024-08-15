@@ -1,0 +1,491 @@
+<html lang="en">
+
+<head>
+    <title>Your AI Frend by frend.ai</title>
+    <meta name='viewport' content="width=device-width, initial-scale=1" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="en">
+    <meta content="utf-8" http-equiv="encoding">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+        integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://icono-49d6.kxcdn.com/icono.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles_full_screen.css?v=1.6">
+    <link rel="stylesheet" type="text/css" href="styles/icons.css?v=1.6">
+    <!-- <link rel="stylesheet" type="text/css" href="styles/styles.css"> -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+
+<!-- mobile view-->
+    <style>
+        @media (max-width: 768px) {
+            /* body {
+                margin: 0;
+                padding: 0;
+
+            } */
+        
+            #frend-main-container {
+                flex-direction: column;
+                /* align-items: center; */
+                justify-content: flex-start;
+                width: 100%;
+                height: auto;
+            }
+
+            #frend-model-view {
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: auto;
+                order: 1; 
+            }
+
+            #frend-controls, #frend-side-nav {
+                display: none;
+            }
+
+            #frend-message-view {
+                position: fixed;
+            }
+
+            #frend-chat-screen-history-msgs {
+                position: fixed;
+                bottom: 75px;
+                left: 0;
+                padding: 10px;
+                width: 100%; 
+                max-width: 100%; 
+                order: 2; 
+                max-height: 30vh;
+                overflow-y: auto;
+            }
+
+            #frend-message-history, #frend-input-area {
+                width: 100%; 
+            }
+
+            #frend-input-area {
+                position: relative;
+                bottom: 0;
+                left: 0;
+                width: 100%; 
+                padding: 10px;
+                box-sizing: border-box; 
+                background: #f8f8f8; 
+                z-index: 10; 
+                margin-top: -10px;
+            }
+            #frend-model-view{
+                display:flex !important;
+                height:50% !important;
+                width:55% !important;
+                border-right:1px solid green;
+                }
+            
+            #frend-canvas {
+                width: 100%;
+            }
+       
+            .prompt-button {
+                display: none;
+            }
+            #frend-chat-screen-input-type{
+                
+                width: 40vh;
+            }
+
+            #typingAnimationText {
+                display: none;
+            }
+
+            .dot-flashing, .dot-flashing::before, .dot-flashing::after{
+                display: none;
+            }
+
+    
+        }
+        </style> 
+         
+
+<body id="main-body" class="loading">
+    <div id="ad-modal" tabindex="-1" class="hidden fixed top-0 left-0 right-0 z-50 w-full overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+                        View Ad
+                    </h3>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <div id="player"></div>
+                </div>
+                <!-- Modal footer -->
+                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button id="ad-done-button" data-modal-hide="small-modal" type="button" class="hidden text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="max-message-limit-modal" tabindex="-1" class="hidden fixed top-0 left-0 right-0 z-50 w-full overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative w-full max-w-md max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+                        Purchase Membership
+                    </h3>
+                    <button id="max-message-modal-close-button" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="small-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        Purchase Premium to unlock unlimited messages or watch an ad to unlock 3 more messages!
+                    </p>
+                </div>
+                <!-- Modal footer -->
+                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <a href="https://timely.frend.ai/premium" target="_blank" rel="noopener noreferrer"><button id="modal-purchase-button" data-modal-hide="small-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Purchase Premium</button></a>
+                    <button id="watch-ad-button" data-modal-hide="small-modal" type="button" class="ms-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Watch ad</button>
+                    <button id="modal-purchase-cancel-button" data-modal-hide="small-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="prompt-login-modal" tabindex="-1" class="hidden fixed top-0 left-0 right-0 z-50 w-full overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative w-full max-w-md max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-white">
+                        Members Only
+                    </h3>
+                    <button id="prompt-login-modal-close-button" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="small-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        Please login or register in order to chat with your AI Frends.
+                    </p>
+                </div>
+                <!-- Modal footer -->
+                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <a href="https://timely.frend.ai/login" target="_parent"><button id="modal-login-button" data-modal-hide="small-modal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login/Register</button></a>
+                    <button id="modal-cancel-button" data-modal-hide="small-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="frend-floater"></div>
+    <div id="frend-main-container">
+        <div id="frend-side-nav">
+            <ul>
+                <li><a id="frend-profile"><span class="material-symbols-rounded">manage_accounts</span><br>Profile</a></li>
+                <li><a id="frend-explore"><span class="material-symbols-rounded">travel_explore</span><br>Explore</a></li>
+                <li><a id="frend-selector"><span class="material-symbols-rounded">settings_accessibility</span><br>Frend</a></li>
+            </ul>
+        </div>
+        <div id="frend-explore-menu" class="hidden">
+            <a class="close-menu"><span class="material-symbols-rounded">close_small</span><br>close</a>
+            <h1 class="text-3xl font-extrabold">Explore</h1>
+            <ul>
+                <li><a class="explore-text">
+                    <p>Let me vent</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+                <li><a class="explore-text">
+                    <p>Learn something</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+                <li><a class="explore-text">
+                    <p>Generate Ideas</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+                <li><a class="explore-text">
+                    <p>Safe Space</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+                <li><a class="explore-text">
+                    <p>Advice</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+                <li><a class="explore-text">
+                    <p>Practice</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+                <li><a class="explore-text">
+                    <p>Homework</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+                <li><a class="explore-text">
+                    <p>Philosophical</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+                <li><a class="explore-text">
+                    <p>Coach me</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+                <li><a class="explore-text">
+                    <p>Discover</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+                <li><a class="explore-text">
+                    <p>Movtive Me</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+                <li><a class="explore-text">
+                    <p>Calm me down</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+                <li><a class="explore-text">
+                    <p>Future Plan</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+                <li><a class="explore-text">
+                    <p>Think of a Gift</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+                <li><a class="explore-text">
+                    <p>Help me decide</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+                <li><a class="explore-text">
+                    <p>Career Plan</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+                <li><a class="explore-text">
+                    <p>Help me write</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+                <li><a class="explore-text">
+                    <p>I'm feeling overwhelmed</p>
+                    <svg class="w-40 h-60 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="-5 0 30 18">
+                        <path d="M18 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3.546l3.2 3.659a1 1 0 0 0 1.506 0L13.454 14H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-8 10H5a1 1 0 0 1 0-2h5a1 1 0 1 1 0 2Zm5-4H5a1 1 0 0 1 0-2h10a1 1 0 1 1 0 2Z"/>
+                    </svg>
+                </a></li>
+            </ul>
+        </div>
+        <div id="frend-selector-menu" class="hidden">
+            <a class="close-menu"><span class="material-symbols-rounded">close_small</span><br>close</a>
+            <h1 class="text-3xl font-extrabold">Select Frend</h1>
+            
+            <ul>
+                <li><a class="frend-select" value = '2' model="models/2b/2b.model3.json"><p>2b</p><img src="./assets/2b-pic.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '3' model="models/shiba/shiba.model3.json"><p>Shiba</p><img src="./assets/shiba-pic.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '0' model="models/katie/YelloJacketGirl.model3.json"><p>Katie</p><img src="./assets/katie-pic.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '1' model="models/Santa3/Santa.model3.json"><p>Santa</p><img src="./assets/santa-pic.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '5' model="models/chibi_costimzable2.0_marinki/costomizble_chibi2.0.model3.json"><p>Chibi</p><img src="./assets/chibi-pic.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '6' model="models/kat/free1.model3.json"><p>Kat</p><img src="./assets/kat-pic.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '7' model="models/haru/haru_greeter_t03.model3.json"><p>Susan</p><img src="./assets/susan.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '8' model="models/Hiyori/Hiyori.model3.json"><p>Hiyori</p><img src="./assets/hiyori.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '9' model="models/Mao/Mao.model3.json"><p>Mao</p><img src="./assets/mao.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '9' model="models/Mark/Mark.model3.json"><p>Marcus</p><img src="./assets/marcus.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '10' model="models/Natori/Natori.model3.json"><p>Natori</p><img src="./assets/Natori.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '11' model="models/Rice/Rice.model3.json"><p>Rice</p><img src="./assets/rona.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '12' model="models/RAM/RAM/RAM.model3.json"><p>Ram</p><img src="./assets/ram.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '13' model="models/REM/REM.model3.json"><p>Rem</p><img src="./assets/rem.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '14' model="models/BeatricePoolParty/Beatrice-Pool-Party/Beatrice-Pool-Party.model3.json"><p>Beatrice</p><img src="./assets/beatrice.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '15' model="models/Anastasia_Party/Anastasia_Party.model3.json"><p>Anastasia</p><img src="./assets/anastasia.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '16' model="models/Russell-Fellow/Russell-Fellow.model3.json"><p>Russell</p><img src="./assets/Russell.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '17' model="models/Julius/Julius.model3.json"><p>Julius</p><img src="./assets/julius.png" alt="Ai Frend 2b"/></a></li>
+                <li><a class="frend-select" value = '18' model="models/Kadomon_Risch/Kadomon_Risch.model3.json"><p>Kadomon</p><img src="./assets/Kadomon.png" alt="Ai Frend 2b"/></a></li>
+            </ul>
+        </div>
+        <div id="frend-profile-menu" class="hidden">
+            <a class="close-menu"><span class="material-symbols-rounded">close_small</span><br>close</a>
+            <h1 class="text-3xl font-extrabold">Profile</h1>
+            <ul>
+                <!-- <li><a>Account</a></li> -->
+                <!-- <li><a>Frend Settings</a></li> -->
+                <!-- <li><a>Give feedback</a></li> -->
+                <!-- <li class="last"><a>Share Frend</a></li> -->
+                <li><a href="https://discord.gg/bTSTWaDJpj" target="_blank" rel="noopener noreferrer">Join Discord</a></li>
+                <li class="last"><a href="https://twitter.com/Frend_Ai" target="_blank" rel="noopener noreferrer">Follow on X</a></li>
+                <!-- <li class="last"><a>Connect on Insta</a></li> -->
+                <!-- <li class="last"><a>Connect on Tiktok</a></li> -->
+                <li><a href="https://timely.frend.ai/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy</a></li>
+                <li><a href="https://timely.frend.ai/privacy-policy" target="_blank" rel="noopener noreferrer">Terms of service</a></li>
+            </ul>
+        </div>
+        <div id="frend-stage">
+            
+            <div id="frend-controls">
+                <ul>
+                    <!-- <li><a><span class="material-symbols-rounded">settings</span>settings</a></li> -->
+                    <li><a class="control-button"><span id="frend-mute-btn" class="material-symbols-rounded">volume_up</span>mute</a></li>
+                    <li><a class="control-button"><span id="frend-ppt-btn" class="material-symbols-rounded">mic</span>mic (Hold to talk)   </a></li>
+                    <!-- <li><a><span class="material-symbols-rounded">chat</span>chat</a></li> -->
+                    <li><a class="control-button" id="frend-control-zoom-in"><span class="material-symbols-rounded">zoom_in</span>zoom in</a></li>
+                    <li><a class="control-button" id="frend-control-zoom-out"><span class="material-symbols-rounded">zoom_out</span>zoom out</a></li>
+                    <li><a class="control-button" id="frend-control-reset"><span class="material-symbols-rounded">refresh</span>reset</a></li>
+                    <li><a class="control-button" id="frend-control-emotion"><span class="material-symbols-rounded">heart_plus</span>emotion</a></li>
+                    <!-- <li><a><span class="material-symbols-rounded">instant_mix</span>customize</a></li> -->
+                </ul>
+            </div>
+            <div id="frend-model-view">
+                <canvas id=frend-canvas></canvas>
+                <div id="frend-loading" class="hidden">
+                    <div class="loader"></div>
+    
+                </div>
+            </div>
+            <div id="frend-message-view">
+                <chat style="height:100%">
+                <div id="frend-message-history">
+                    <div id="frend-chat-screen-history-msgs">
+                        <div id="frend-chat-screen-hitsory-ai-template" class="hidden">
+                            <div class="frend-chat-screen-history-ai">
+                                <div class="frend-chat-screen-history-ai-name"></div>
+                                <div class="frend-chat-screen-history-ai-msg">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="frend-chat-screen-hitsory-user-template" class="hidden">
+                            <div class="frend-chat-screen-history-user">
+                                <div class="frend-chat-screen-history-user-name"></div>
+                                <div class="frend-chat-screen-history-user-msg"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="frend-input-loading" class="hidden">
+                        <div class="dot-flashing"></div><span id="typingAnimationText">AI Frend is typing</span>
+                    </div>
+
+                </div>
+
+                <div id="frend-input-area">
+                    <div id="frend-input">
+                        <div id="pre-canned-prompts-container" class="pre-canned-prompts-container">
+                            
+                        </div>
+
+                        <form id="frend-chat-form" class="pure-form" method="post">
+                           
+
+                            <div class="form-container">
+                                <input id="frend-chat-screen-input-type" type="text" name="message" placeholder="Start chatting with your frend..."
+                                    autocomplete="off">
+                                <button id="frend-chat-screen-input-button" type="submit" class="bg-emerald-700 shadow-xl hover:bg-emerald-800 text-white font-bold rounded-full p-2 w-36">Send</button>
+                                <!-- <button id="frend-ptt" alt="Hold space to talk!" title="Hold space to talk!">
+                                    <i class="icono-microphone"></i>
+                                </button> -->
+                            </div>
+                        </form>
+                        <!-- <div className="flex-container">
+                            <input id="frend-chat-screen-input-type" placeholder="Start chatting with your frend..."></input>
+                        </div> -->
+                        <p class="frend-footer">By using frend.ai, you agree to our <a href="#">Terms</a> and <a href="https://timely.frend.ai/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy.</a></p>
+                    </div>
+                </div>
+                
+
+
+
+                <div id="frend-control" class="hidden">
+                    <div id="frend-toast"></div>
+                    <div id="frend-chat" class="frend-chat-bar">
+                        <div id="frend-chat-messages">
+                        </div>
+                        <div>
+                            <form id="frend-chat-form" class="pure-form" method="post">
+                                <div class="form-container">
+                                    <input type="text" name="message" placeholder="Enter a message..." maxlength="500"
+                                        autocomplete="off">
+                                    <button type="submit" class="pure-button pure-button-primary">Send</button>
+                                    <button id="frend-ptt" alt="Hold space to talk!" title="Hold space to talk!">
+                                        <i class="icono-microphone"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="frend-style-center">
+                            <div id="frend-loading" class="lds-frend hidden">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+                </chat>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/global-state.js"></script>
+    <script src="scripts/fullscreen.js?v=2.1"></script>
+    <script src="scripts/lc.min.js"></script>
+    <script src="scripts/l.min.js"></script>
+    <script src="scripts/p.min.js"></script>
+    <script src="scripts/e.min.js"></script>
+    <script src="scripts/index.min.js"></script>
+    <script src="scripts/c2.min.js"></script>
+    <script src="scripts/c4.min.js"></script>
+    <!--<script src="scripts/r-min.js?v=1.6"></script>-->
+    <script src="scripts/animate.js?v=2.1"></script>
+    <script src="scripts/audio.js?v=2.1"></script>
+    <script src="scripts/chat.js?v=2.1"></script>
+    <script src="scripts/stream.js?v=2.1"></script>
+    <script src="scripts/video-player.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    
+</body>
+
+
+</html>

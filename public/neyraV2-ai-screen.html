@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neyra</title>
+    <link rel="stylesheet" href="styles/neyraV2-ai.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+    <div id="video-background"></div>
+    <!-- <script>
+        function onYouTubeIframeAPIReady() {
+            var player;
+            player = new YT.Player('video-background', {
+                width: '100%',
+                height: '100%',
+                videoId: 'S_MOd40zlYU', 
+                playerVars: {
+                    autoplay: 1, //Auto-play the video on load
+                    controls: 0, 
+                    showinfo: 0, 
+                    modestbranding: 1, 
+                    loop: 1, 
+                    playlist: 'S_MOd40zlYU',
+                    fs: 0, 
+                    cc_load_policy: 0, 
+                    iv_load_policy: 3, 
+                    autohide: 0, 
+                    mute: 1 
+                },
+                events: {
+                    onReady: function(event) {
+                        event.target.playVideo();
+                    }
+                }
+            });
+        }
+        </script> -->
+
+    <div class="main-container">
+        <div>
+            <audio id="backgroundAudio" controls loop>
+                <source src="./assets/Neyra_Soundscape_part_1.mp3" type="audio/mp3">
+                Your browser does not support the audio tag.
+            </audio>
+        </div>
+        <script>
+            document.body.addEventListener('click', function playAudio() {
+                var audio = document.getElementById("backgroundAudio");
+
+                audio.play()
+                    .then(() => {
+                        audio.controls = false; 
+                    })
+                    .catch(error => {
+                        console.error("Audio playback failed:", error);
+                    });
+
+                document.body.removeEventListener('click', playAudio);
+            });
+
+            document.getElementById('backgroundAudio').addEventListener('play', function () {
+                this.controls = false;
+            });
+        </script>
+
+        <div class="spinning-border-left">
+            <svg width="100%" height="100%" viewBox="0 0 681 423" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(330.5, 181.5)">
+                    <ellipse cx="0" cy="0" rx="208.483" ry="209.5" stroke="white" stroke-width="1.5"
+                        stroke-dasharray="1 8" class="">
+                        <animateTransform attributeType="XML" attributeName="transform" type="rotate" from="0 0 0"
+                            to="360 0 0" dur="40s" repeatCount="indefinite" />
+                    </ellipse>
+                </g>
+            </svg>
+        </div>
+
+        <div class="spinning-border-right">
+            <svg width="100%" height="100%" viewBox="0 0 681 423" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(330.5, 181.5)">
+                    <ellipse cx="0" cy="0" rx="208.483" ry="209.5" stroke="white" stroke-width="1.5"
+                        stroke-dasharray="1 8" class="">
+                        <animateTransform attributeType="XML" attributeName="transform" type="rotate" from="360 0 0"
+                            to="0 0 0" dur="40s" repeatCount="indefinite" />
+                    </ellipse>
+                </g>
+            </svg>
+        </div>
+
+        <div id="frend-chat-holder">
+            <div id="frend-chat-messages">
+                <h3>Chat</h3>
+                <div id="frend-chat-messages-box">
+                    <ul id="frend-chat-messages-holder">
+                        <li>
+                            <span class="frend-user"></span>
+                            <span class="frend-user-msg"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="frend-chat-response">
+                <div id="frend-chat-response-holder">
+                    <span>Greetings Human, I am Neyra</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="frend-model-view">
+            <canvas id=frend-canvas></canvas>
+            <div id="frend-loading" class="hidden">
+                <div class="loader"></div>
+            </div>
+        </div>
+
+        <!-- <div id="video-container">
+                <video id="shaped-video" autoplay loop muted>
+                    <source src="./assets/neyra-background.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div> -->
+
+
+
+    </div>
+
+    <script src="scripts/global-state.js"></script>
+    <script src="scripts/lc.min.js"></script>
+    <script src="scripts/l.min.js"></script>
+    <script src="scripts/p.min.js"></script>
+    <script src="scripts/e.min.js"></script>
+    <script src="scripts/c2.min.js"></script>
+    <script src="scripts/c4.min.js"></script>
+    <script src="scripts/questions.js"></script>
+    <script src="scripts/neyra-animate-stream.js?v=2.1"></script>
+    <script src="scripts/neyra-live-stream.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "shiba.moc3",
+		"Textures": [
+			"shiba.2048/texture_00.png",
+			"shiba.2048/texture_01.png",
+			"shiba.2048/texture_02.png"
+		],
+		"Physics": "shiba.physics3.json",
+		"DisplayInfo": "shiba.cdi3.json",
+		"Expressions": [
+			{
+			  "Name": "hawawa",
+			  "File": "expressions/hawawa.exp3.json"
+			},
+			{
+			  "Name": "hawawakirakira",
+			  "File": "expressions/hawawakirakira.exp3.json"
+			},
+			  {
+				"Name": "smile",
+				"File": "expressions/smile.exp3.json"
+			  },{
+				"Name": "zitome",
+				"File": "expressions/zitome.exp3.json"
+			  },
+				{
+					"Name": "taiki",
+					"File": "motions/taiki.motion3.json"
+				  }
+		  ],
+		  "Motions": {
+			"Idle": [
+			  {
+				"File": "motions/effect.motion3.json"
+			  }
+			  
+			],
+			"Tap": [
+				{
+					"File": "motions/wavehands.motion3.json"
+				}
+			]
+		  }
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": [
+				"ParamEyeROpen",
+				"ParamEyeLOpen"
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": ["ParamMouthOpenY","ParamMouthForm"]
+		}
+	]
+}

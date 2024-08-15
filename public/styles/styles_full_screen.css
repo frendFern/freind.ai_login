@@ -1,0 +1,433 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+  background:#e1f1ee;
+
+}
+
+#frend-main-container{
+  display:flex;
+  height:100%;
+}
+
+#frend-side-nav{
+  padding:20px 12px;
+  border-right:1px solid green;
+  text-align: center;
+}
+
+ul, ul li{
+  list-style: none;
+  padding:0;
+}
+
+#frend-side-nav li a{
+  width:64px;
+  height:64px;
+  display:block;
+  cursor: pointer;
+  font-size:12px;
+}
+#frend-side-nav li a:hover{
+  opacity:0.5;
+}
+
+#frend-stage{
+  display:flex;
+  width:100%;
+}
+
+#frend-explore-menu,
+#frend-selector-menu{
+  display:flex;
+  flex-direction:column;
+  margin:0 20px;
+  border-right:1px solid green;
+}
+
+#frend-explore-menu h1,
+#frend-selector-menu h1,
+#frend-profile-menu h1 {
+  text-align: center;
+}
+
+#frend-explore-menu ul,
+#frend-selector-menu ul{
+  width:375px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+#frend-explore-menu li,
+#frend-selector-menu li{
+  padding:20px 0 0 20px;
+}
+
+#frend-explore-menu li a,
+#frend-selector-menu li a{
+ width:149px;
+ height:235px;
+ display:block;
+ text-align: center;
+ font-weight: bold;
+}
+
+#frend-profile-menu{
+  display:flex;
+  flex-direction:column;
+  border-right:1px solid green;
+}
+
+#frend-profile-menu ul{
+  margin:0 20px;
+  width:375px;
+}
+
+#frend-profile-menu ul li{
+  height:24px;
+  padding: 16px 8px;
+}
+
+#frend-profile-menu ul li.last{
+  padding-bottom:30px;
+  margin-bottom:10px;
+  border-bottom:1px solid green;
+}
+
+#frend-profile-menu h2{
+  padding-left:20px;
+}
+#frend-profile-menu .close-menu{
+  right:-370px;
+}
+
+#frend-model-view{
+  display:flex;
+  height:100%;
+  width:75%;
+  min-width:400px;
+  border-right:1px solid green;
+}
+
+
+.frend-footer{
+  font-size:11px;
+}
+
+
+
+
+
+.close-menu{
+  display:block;
+  font-size:12px;
+  position:relative;
+  right: -330px;
+  z-index:99;
+  cursor:pointer;
+  width:50px;
+  height:50px;
+  user-select: none;
+}
+
+.material-symbols-rounded {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 300,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
+li a {
+  user-select: none;
+}
+
+
+/*TOP navigation for frend settings*/
+#frend-controls{
+  position:absolute;
+}
+
+#frend-controls ul{
+  font-size:10px;
+  text-align: center;
+  display:flex;
+}
+#frend-controls ul li{
+  padding:10px;
+  margin-left:auto;
+}
+#frend-controls a{
+  cursor:pointer;
+}
+#frend-controls span{
+  display:block;
+}
+
+.control-button:hover { 
+  opacity: 0.45;
+}
+
+
+
+
+/* CHAT */
+
+#frend-message-view{
+  display:flex;
+  height:100%;
+  max-width: 25%;
+  padding:0 20px;
+  flex-direction: column;
+}
+
+
+#frend-message-history{
+  height:100%;
+  width: 100%;
+}
+
+
+#frend-input-area{
+  display:flex;
+  flex-direction: column;
+  width:25%;
+  margin:auto;
+  position: absolute;
+  bottom: 35px;
+  max-height: 15%;
+}
+
+#frend-chat-screen-history-msgs {
+  overflow: auto; 
+  max-height:60%
+}
+
+#frend-chat-screen-history-msgs::-webkit-scrollbar {
+  display: none;
+}
+
+#frend-input-area textarea{   
+  border:1px solid green;
+  flex-grow:1;
+  border-radius: 30px;
+  max-height:300px;
+  min-height:52px;
+  max-width:300px;
+  min-width:300px;
+  padding:10px 20px 10px 50px;
+}
+
+#frend-chat-screen-input-type{
+  width: 60%;
+}
+
+#frend-input-area p{
+  text-align: center;
+}
+
+#frend-input-loading {
+  padding-left: 2em;
+  padding-bottom: 0.5em;
+ 
+}
+
+
+.frend-chat-screen-history-ai,
+.frend-chat-screen-history-user
+{
+  background:#e1f1ee;
+  border-radius: 30px;
+  padding:10px 20px;
+  box-shadow: 5px 5px 10px lightgrey;
+  font-size:12px;
+  margin:10px 60px 10px 10px;
+}
+
+.frend-chat-screen-history-ai-name,
+.frend-chat-screen-history-user-name{
+  font-weight:bold;  
+}
+.frend-chat-screen-history-ai-msg,
+.frend-chat-screen-history-user-msg{
+  font-weight:lighter;
+  color:black;  
+}
+
+.frend-chat-screen-history-ai{
+  background:#ffffff;
+}
+
+.frend-chat-screen-history-user{
+  background:#d1fae5;
+  margin:10px 10px 10px 60px;
+}
+
+.smaller-button{
+  scale:0.45;
+}
+.pure-button.smaller-button{
+  scale:0.45;
+  padding:0;
+  background:transparent;
+  color: black;
+}
+.pure-button.smaller-button:hover{
+  opacity: 0.45;
+}
+
+
+
+#frend-ppt-btn{
+  background-image:url(../assets/images/mic.png);
+  top: 253px;
+  left: 9px;
+}
+
+#frend-ppt-btn.frend-press{
+  background-image:url(../assets/images/mic-on.png);
+  top: 253px;
+  left: 9px;
+  animation-duration: 1s;
+  animation-name: audioLoop;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes audioLoop {
+  to {
+      width: 55px;
+  }
+  from {
+    width: 33px;
+  }
+}
+
+#prompt-login-modal{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: calc((100% - 25%) / 2); 
+  padding-left: calc((100% - 25%) / 2); 
+}
+
+#max-message-limit-modal {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: calc((100% - 35%) / 2); 
+  padding-left: calc((100% - 35%) / 2); 
+}
+
+#ad-modal {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: calc((100% - 45%) / 2); 
+  padding-left: calc((100% - 45%) / 2); 
+}
+
+/**
+ * ==============================================
+ * Dot Flashing
+ * ==============================================
+ */
+ .dot-flashing {
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+  animation: dot-flashing 1s infinite linear alternate;
+  animation-delay: 0.5s;
+}
+.dot-flashing::before, .dot-flashing::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+.dot-flashing::before {
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+  animation: dot-flashing 1s infinite alternate;
+  animation-delay: 0s;
+}
+.dot-flashing::after {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+  animation: dot-flashing 1s infinite alternate;
+  animation-delay: 1s;
+}
+
+@keyframes dot-flashing {
+  0% {
+    background-color: #9880ff;
+  }
+  50%, 100% {
+    background-color: rgba(152, 128, 255, 0.2);
+  }
+}
+
+#typingAnimationText {
+  padding-left: 2em;
+  font-weight: bold;
+  
+
+  
+}
+
+/*LOADING*/
+#frend-loading{
+  position: absolute;
+  margin-left: 20em;
+  padding-top: 20em;
+}
+
+.loader {
+  display:flex;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 40px;
+  animation: l1 1s linear infinite alternate;
+}
+.loader:before {
+  content:"Loading..."
+}
+@keyframes l1 {to{opacity: 0}}
+
+
+/* pre-canned prompts styling */
+.prompt-button {
+  display: inline-block; 
+  width: 90%; 
+  padding: 10px 5px;
+  background-color: #075324;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+
+  margin-bottom: 5px;
+}
+
+.prompt-button:hover:enabled {
+  background-color: #08612b;
+}
+
+#pre-canned-prompts-container{
+  margin-top: -170px; 
+
+  margin-bottom: 30px;
+}

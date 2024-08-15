@@ -1,0 +1,691 @@
+html {
+  scroll-behavior: smooth;
+}
+
+#frend-floater{
+  position:fixed;
+}
+
+#frend-floater.mobile{
+  width: 100vw;
+  height: 100vh;
+}
+
+#frend-settings-screen.mobile table{
+  height: 250px;
+  font-size: 14px !important;
+}
+
+#frend-canvas.mobile{
+  width: 100vw;
+}
+
+#frend-settings-btn.mobile{
+  top: -40px;
+  left: 90vw;
+}
+
+#frend-chat-screen.mobile{
+  width: 100vw;
+  display: block;
+  position: fixed;
+  bottom: 0px;
+  height: 400px;;
+}
+
+#frend-chat-screen-input-area.mobile{
+  height: 80px;
+  position: fixed;
+  bottom: 0px;
+  width: 100vw;
+}
+
+#frend-chat-screen-history.mobile{
+  height: 700px;
+}
+
+#frend-chat-screen-history-msgs.mobile{
+  min-height: 300px;
+}
+
+#frend-ppt-btn.mobile{
+  top: 350px;
+}
+
+#frend-floater:hover,
+#frend-floater:active,
+#frend-floater:focus,
+#frend-floater.mobile,
+#frend-floater.desktop-temp{
+  background:#e1f1ee;
+}
+#frend-floater:hover #frend-widget-controls,
+#frend-floater:active #frend-widget-controls,
+#frend-floater:focus #frend-widget-controls,
+#frend-floater.mobile #frend-widget-controls,
+#frend-floater.desktop-temp #frend-widget-controls
+{
+  display:block;
+}
+
+#frend-widget-controls{
+  display:none;
+  position:relative;
+  height:43px;
+  box-shadow: 0px 3px 3px lightgray;
+}
+#frend-widget-controls.show,
+.mobile #frend-widget-controls{
+  display:block;
+}
+#frend-floater.show{
+  background:#e1f1ee;
+}
+
+.smaller-button{
+  scale:0.5;
+  
+}
+.pure-button.smaller-button{
+  scale:0.5;
+  padding:0;
+  background:transparent;
+}
+.pure-button.smaller-button:hover{
+  opacity: 0.5;
+}
+.frend-control-center{
+  text-align: center;
+}
+#frend-login .button-secondary{
+  border:#00a781;
+  background: white;
+  color: #00a781;
+  margin-top:10px;
+}
+
+
+#frend-widget-topnav{
+  top:0;
+  left:0;
+  width:100%;
+  height:43px;
+  background:#00a781;
+}
+#frend-widget-topnav #frend-logo{
+  width:200px;
+  height:40px;
+  display:block;
+}
+
+#frend-logo{
+  background:url(../assets/logo.png);
+  background-size: auto 35px;
+  background-repeat: no-repeat;
+  background-position-y: 4px;
+  color:transparent;
+}
+
+#frend-settings-btn, #frend-ppt-btn, #frend-chat-btn{
+  background-size: auto 35px;
+  background-repeat: no-repeat;
+  background-position-y: 4px;
+  color:transparent;
+  position: relative;
+  display:block;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+ 
+}
+#frend-settings-btn{
+  background-image: url(../assets/gear.png);
+  top: -40px;
+  left: 550px;
+}
+
+
+#frend-settings-screen{
+  z-index:10;
+  position:relative;
+  width:184px;
+  min-height:130px;
+  background:white;
+  top: -37px;
+  left: 400px;
+  box-shadow: 5px 5px 10px lightgrey;
+  padding-top:10px;
+}
+
+#frend-settings-screen table{
+  font-size: 12px !important;
+  margin:auto;
+}
+#frend-settings-close, #frend-login-close{
+  position:absolute;
+  top:0;
+  right:0;
+  color:lightgrey;
+  cursor: pointer;
+  height:15px;
+  width:15px;
+}
+
+
+#frend-settings-close:hover,#frend-login-close:hover{
+  opacity: 0.5;
+}
+
+
+/********** Range Input Styles **********/
+/*Range Reset*/
+input[type="range"] {
+  -webkit-appearance: none;
+   appearance: none;
+   background: transparent;
+   cursor: pointer;
+   width: 84px;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+ outline: none;
+}
+
+/***** Chrome, Safari, Opera and Edge Chromium styles *****/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #00a781;
+  height: 1px;  
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+ -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: -2px; /* Centers thumb on the track */
+
+  /*custom styles*/
+  background-color: #00a781;
+  height: 6px;
+  width: 6px;
+  border-radius:3px;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {   
+ border: 1px solid #00a781;
+ outline: 3px solid #00a781;
+ outline-offset: 0.125rem; 
+}
+
+/******** Firefox styles ********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+  background-color: #00a781;
+  border-radius: 0.5rem;
+  height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+  border: none; /*Removes extra border that FF applies*/
+  border-radius: 0; /*Removes default border-radius that FF applies*/
+
+  /*custom styles*/
+  background-color: #00a781;
+  height: 2rem;
+  width: 1rem;
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+ border: 1px solid #00a781;
+ outline: 3px solid #00a781;
+ outline-offset: 0.125rem; 
+}
+
+/*** select dropdown style ***/
+select{
+  background:white; 
+  border-color:#00a781; 
+  border-radius:10px;
+  color:#00a781;
+  width:84px;
+  text-align: center;
+}
+
+#frend-settings-screen button{
+  background:white;
+  border-color:#00a781; 
+  border-radius:10px;
+  color:#00a781;
+  border:1px solid #00a781;
+}
+#frend-settings-screen button.set{
+  background:#00a781;
+  color:white;
+}
+#frend-settings-screen a{
+  color:#00a781
+}
+
+#frend-settings-account-id-link{
+  background-image: url(../assets/signin.png);
+  display:inline-block;
+  width:80px;
+  margin-top: -4px;
+  background-size: 15px 15px;
+  background-position: 62px -1px;
+  background-repeat: no-repeat;
+  position: relative;
+  top: 2px;
+  cursor: pointer;
+}
+#frend-settings-account-id-link:hover{
+  opacity: 0.5;
+}
+
+
+
+
+
+
+#frend-ppt-btn{
+  background-image:url(../assets/mic.png);
+  top: 253px;
+  left: 9px;
+}
+
+#frend-ppt-btn.frend-press{
+  background-image:url(../assets/mic-on.png);
+  top: 253px;
+  left: 9px;
+  animation-duration: 1s;
+  animation-name: audioLoop;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes audioLoop {
+  to {
+      width: 55px;
+  }
+  from {
+    width: 33px;
+  }
+}
+
+
+#frend-chat-btn{
+  background-image:url(../assets/chat.png);
+  top: 213px;
+  left: 540px;
+}
+
+#frend-chat-btn.selected{
+  background-image:url(../assets/chat-on.png);
+}
+
+
+
+#frend-canvas{
+  max-height:100vh;
+}
+
+#frend-control {
+    position: absolute;
+    top: 8px;
+    left: 24px;
+    color: #fff;
+    font-size: 12px;
+  }
+.frend-chat-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #ccc; /* Optional: set a background color */
+    padding: 20px; /* Optional: add some padding */
+    }
+
+#frend-chat-messages{
+    max-height:20vh;
+    overflow-y: scroll;
+}
+
+
+
+/*Loading spinner*/
+.frend-style-center{
+  margin: auto;
+  width: 80px;
+  background:#00a781
+}
+.lds-frend {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-frend.hidden {
+  display:none;
+}
+
+.hidden{
+  display:none;
+}
+
+
+.lds-frend div {
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #e1f1ee;
+  animation: lds-frend 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-frend div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-frend div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-frend div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+@keyframes lds-frend {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+
+
+
+
+@media only screen and (min-resolution: 117dpi) and (max-resolution: 119dpi), only screen and (min-resolution: 131dpi) and (max-resolution: 133dpi), only screen and (min-resolution: 145dpi) and (max-resolution: 154dpi), only screen and (min-resolution: 162dpi) and (max-resolution: 164dpi), only screen and (min-resolution: 169dpi) {
+  #touch_logo {
+     display: inherit;
+  }
+  #mouse_logo {
+     display: none;
+  }
+/* Your touch-specific css goes here */
+}
+@media only screen and (min-resolution: 165dpi) and (max-resolution: 168dpi), only screen and (min-resolution: 155dpi) and (max-resolution: 160dpi), only screen and (min-resolution: 134dpi) and (max-resolution: 144dpi), only screen and (min-resolution: 120dpi) and (max-resolution: 130dpi), only screen and (max-resolution: 116dpi) {
+  #touch_logo {
+     display: none;
+  }
+  #mouse_logo {
+     display: inherit;
+  }
+/* Your click-specific css goes here */
+}
+@media (min-width: 541px){
+/* Big view stuff goes here. */
+}
+@media (max-width: 540px) and (min-width: 390px){
+/* Smaller view stuff goes here. */
+#frend-chat-form input{
+  display: inline-block;
+  margin-top: 15px;
+  width:260px;
+}
+.frend-chat-bar{
+  width: 90%;
+}
+}
+@media (max-width: 399px){
+/* Stuff for really small views goes here. */
+}
+
+#frend-chat-loading{
+  height:33px;
+}
+
+#frend-toast {
+  z-index: 1000;
+  visibility: hidden;
+  min-width: 150px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.6s, visibility 0.6s;
+ }
+ 
+ #frend-toast.show {
+  visibility: visible;
+  opacity: 1;
+ }
+
+ .noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+
+
+
+#frend-login{
+  color:#00a781;
+  width:250px;
+  background:white;
+  padding:20px;
+  text-align: center;
+  position:relative;
+  top:-37px;
+  left:5px;
+  box-shadow: 5px 5px 10px lightgrey; 
+  z-index: 1;
+}
+#frend-login legend, #frend-login input{
+  color:#00a781;
+}
+#frend-login input{
+  margin-bottom:10px;
+}
+#frend-login button.pure-button-primary{
+  background:#00a781;
+  border-radius:10px;
+}
+
+
+
+#frend-chat-screen{
+  height:166px;
+  width:600px;
+  background:#00a781;
+}
+#frend-chat-screen-history{
+  border-top:1px solid #e1f1ee;
+  height:130px;
+  color:#00a781;
+  background:white;
+}
+#frend-chat-screen-history-msgs{
+  height:110px;
+  overflow-y: auto;
+}
+
+.frend-chat-screen-history-ai,
+.frend-chat-screen-history-user
+{
+  background:#e1f1ee;
+  border-radius: 30px;
+  padding:10px 20px;
+  box-shadow: 5px 5px 10px lightgrey;
+  font-size:12px;
+  margin:10px 60px 10px 10px;
+}
+
+.frend-chat-screen-history-ai-name,
+.frend-chat-screen-history-user-name{
+  font-weight:bold;  
+}
+.frend-chat-screen-history-ai-msg,
+.frend-chat-screen-history-user-msg{
+  font-weight:lighter;
+  color:black;  
+}
+
+
+.frend-chat-screen-history-user{
+  background:#d9d9d9;
+  margin:10px 10px 10px 60px;
+}
+
+
+#frend-chat-screen-history-header{
+  text-align:center;
+  font-weight:bold;
+  font-size:13px;
+  padding:3px 0px;
+}
+
+#frend-chat-screen-input-area{
+  background:#00a781;
+}
+#frend-chat-screen-input-area input{
+  width:85%;
+  border-radius: 10px;
+  margin:5px 0px 5px 8px;
+  border:0px;
+  padding:5px 3px 5px 10px;
+  font-size:12px;
+}
+
+#frend-chat-screen-input-area input:focus{
+  outline:none;
+}
+
+#frend-chat-screen-input-area button{
+  background-image:url(../assets/send.png);
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  background-size:25px 25px;
+  height:25px;
+  width:25px;
+  border:0px;
+  line-height:0px;
+  float:right;
+  margin:4px 15px 0px 0px;
+  cursor: pointer;
+  background-color:#00a781;
+}
+#frend-chat-screen-input-area button:hover{
+  opacity:0.5;
+}
+
+#frend-share-play,
+#frend-share-stop{
+  position:fixed;
+  top: 80px;
+  left: 15px;
+  cursor:pointer;
+}
+
+
+#frend-create-user-email-error,
+#frend-create-user-password-error,
+#frend-create-login-error{
+  color:red;
+}
+
+#frend-move-control{
+  background-image:url(../assets/move.png);
+  position: absolute;
+  top: 75px;
+  right: 256px;
+  height: 30px;
+  width: 30px;
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  cursor:grab;
+}
+
+
+body.loading{
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%,-50%);
+  background-color: #00a781;
+}
+.loading .progress{
+  position: relative;
+  height: 10px;
+  width: 1110%;
+  border: 10px solid lightgrey;
+  border-radius: 15px;
+}
+.loading .progress .color{
+  position: absolute;
+  background-color: #ffffff;
+  width: 0px;
+  height: 10px;
+  border-radius: 15px;
+  animation: progres 4s infinite linear;    
+}
+@keyframes progres{
+  0%{
+    width: 0%;
+  }
+  25%{
+      width: 50%;
+  }
+  50%{
+      width: 75%;
+  }
+  75%{
+      width: 85%;
+  }
+  100%{
+      width: 100%;
+  }
+}
+.livestreamButton {
+  background-color: rgb(26, 26, 26);
+  border-radius: 8px;
+  border-width: 0;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+input[type=text] {
+padding: 14px 20px;
+border-radius: 5px;
+border: 1px solid #e4e4e4;
+box-shadow: inset 0 1px 1px 0 rgba(0,0,0,.06);
+};

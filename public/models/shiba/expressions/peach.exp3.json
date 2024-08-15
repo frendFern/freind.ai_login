@@ -1,0 +1,40 @@
+{
+    "Type": "Live2D Expression",
+    "Parameters": [
+        {
+            "Id": "Paramcolorchange04",
+            "Value": 20.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "Paramcolorchange4",
+            "Value": 50.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "Paramcolorchange5",
+            "Value": 10.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "Paramcolorchange1",
+            "Value": 10.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "Paramcolorchange01",
+            "Value": 10.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "Paramcolorchange3",
+            "Value": 20.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "Paramcolorchange06",
+            "Value": 10.0,
+            "Blend": "Add"
+        }
+    ]
+}

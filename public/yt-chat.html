@@ -1,0 +1,116 @@
+<html>
+    <title>Your AI Frend by frend.ai</title>
+    <meta name='viewport' content="width=device-width, initial-scale=1" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="en">
+    <meta content="utf-8" http-equiv="encoding">
+    <link rel="stylesheet" type="text/css" href="styles/live-stream.css?v=1.4">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <body>
+        <!-- <canvas id="canvas3d"></canvas> -->
+        <div id="frend-logo"><img src="assets/logo.png"></div>
+        <div id="frend-chat">
+            <div id="frend-chat-mainstage">
+                <div id="frend-chat-rules">
+                    <div>
+                        <h2>Rules</h2>
+                        <ol>
+                            <li>Ask Rem-chan nicely for any art request e.g. Can you draw...</li>
+                            <li>Describe your drawing in as much detail as you can e.g. hair color, clothing...</li>
+                            <li>No NSFW art request (else I get banned)</li>
+                            <li>Feel free to ask and talk to Rem-chan about topics other than art</li>
+                            <li>Have fun!</li>
+                        </ol>
+                    </div>
+                </div>
+                <div id="frend-chat-art-holder">
+                    <div id="frend-chat-art-current"></div>
+                </div>
+                <div id="frend-chat-holder">
+                    <div id="frend-chat-messages">
+                        <h3>Chat</h3>
+                        <div id="frend-chat-messages-box">
+                        <ul id="frend-chat-messages-holder">
+                            <li>
+                                <span class="frend-user"></span>
+                                <span class="frend-user-msg"></span>
+                            </li>
+                        </ul></div>
+                    </div>
+                    <div id="frend-chat-response">
+                        <div id="frend-chat-response-holder">
+                            <span>Hi I'm Rem</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="frend-chat-lowerstage">
+                <div class="frend-holder" id="frend-chat-current-comment">
+                    <h4>Current Comment</h4>
+                    <div id="frend-holder-current-comment" class="frend-holder-bubble">
+                        <span class="frend-user">test: </span>
+                        <span class="frend-user-msg">hi</span> 
+                    </div>
+                </div>
+                <div class="frend-holder" id="frend-chat-finished-art-request">
+                    <h4>Finished Art Request</h4>
+                    <div id="frend-holder-current-comment-draw" class="frend-holder-bubble">
+                        <span class="frend-user">test: </span>
+                        <span class="frend-user-msg">draw</span> 
+                    </div>
+                </div>
+                <div class="frend-holder" id="frend-chat-queued-art">
+                    <h4>Sponsor message</h4>
+                    <div class="frend-holder-bubble">
+                        visit frend.ai
+                    </div>
+                </div>
+                <div id="frend-model-view">
+                    <div id="frend-controls">
+                        <ul>
+                            <!-- <li><a><span class="material-symbols-rounded">settings</span>settings</a></li> -->
+                            <li><a class="control-button"><span id="frend-mute-btn" class="material-symbols-rounded">volume_up</span>mute</a></li>
+                            <li><a class="control-button"><span id="frend-ppt-btn" class="material-symbols-rounded">mic</span>mic (Hold to talk)   </a></li>
+                            <!-- <li><a><span class="material-symbols-rounded">chat</span>chat</a></li> -->
+                            <li><a class="control-button" id="frend-control-zoom-in"><span class="material-symbols-rounded">zoom_in</span>zoom in</a></li>
+                            <li><a class="control-button" id="frend-control-zoom-out"><span class="material-symbols-rounded">zoom_out</span>zoom out</a></li>
+                            <li><a class="control-button" id="frend-control-reset"><span class="material-symbols-rounded">refresh</span>reset</a></li>
+                            <li><a class="control-button" id="frend-control-emotion"><span class="material-symbols-rounded">heart_plus</span>emotion</a></li>
+                            <li><a class="control-button" id="frend-control-close"><span class="material-symbols-rounded">close</span>close</a></li>
+                            <!-- <li><a><span class="material-symbols-rounded">instant_mix</span>customize</a></li> -->
+                        </ul>
+                    </div>
+                <canvas id=frend-canvas></canvas>
+                <div id="frend-loading" class="hidden">
+                    <div class="loader"></div>
+    
+                </div>
+            </div>
+            </div>
+        </div>
+    <script type="importmap">
+        {
+            "imports": {
+            "@splinetool/runtime": "https://unpkg.com/@splinetool/runtime@1.0.67/build/runtime.js"
+            }
+        }
+    </script>
+    <script src="scripts/lc.min.js"></script>
+    <script src="scripts/l.min.js"></script>
+    <script src="scripts/p.min.js"></script>
+    <script src="scripts/e.min.js"></script>
+    <script src="scripts/c2.min.js"></script>
+    <script src="scripts/c4.min.js"></script>
+    <script src="scripts/global-state.js"></script>
+    <script src="scripts/questions-yt.js"></script>
+    <script src="scripts/animate-stream.js?v=2.1"></script>
+    <script type="module" src="scripts/live-stream.js"></script>
+
+    </body>
+
+</html>

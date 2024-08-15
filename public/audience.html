@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="chat-container">
+        <iframe id="chat" src="https://www.youtube.com/live_chat?v=fI9TWH8npFM&embed_domain=localhost&dark_theme=1" width="100%" height="600"></iframe> 
+    </div>
+
+
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <script type="module" src="scripts/webinar/audience.js"></script>
+
+    <script src="https://apis.google.com/js/api.js"></script>
+<script>
+  /**
+   * Sample JavaScript code for youtube.liveChatMessages.insert
+   * See instructions for running APIs Explorer code samples locally:
+   * https://developers.google.com/explorer-help/code-samples#javascript
+   */
+
+ async function authenticate() {
+   return google.accounts.id.initialize({
+        client_id: '87118153860-1o4kgb21qoerchk81co0ff0mdrkltldr.apps.googleusercontent.com',
+        callback: () => console.log(response)
+        
+      });
+      google.accounts.id.prompt();
+  }
+  function loadClient() {
+    gapi.client.setApiKey("AIzaSyAK24HKSNPMixn0Mw2azTzJCCZaMo_Obp4");
+    return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+        .then(function() { console.log("GAPI client loaded for API"); },
+              function(err) { console.error("Error loading GAPI client for API", err); });
+  }
+  // Make sure the client is loaded and sign-in is complete before calling this method.
+  function execute() {
+    return gapi.client.youtube.liveChatMessages.insert({
+      "part": [
+        "snippet"
+      ],
+      "resource": {
+        "snippet": {
+          "liveChatId": "Cg0KC1pJSzNOMkpsMkNJKicKGFVDZWYxLThlT3BKZ3VkN3N6VlBsWlFBURILWklLM04ySmwyQ0k",
+          "type": "textMessageEvent",
+          "textMessageDetails": {
+            "messageText": "cool!"
+          }
+        }
+      }
+    })
+        .then(function(response) {
+                // Handle the results here (response.result has the parsed body).
+                console.log("Response", response);
+              },
+              function(err) { console.error("Execute error", err); });
+  }
+
+</script>
+<button onclick="authenticate().then(loadClient)">authorize and load</button>
+<button onclick="execute()">execute</button>
+</body>
+</html>

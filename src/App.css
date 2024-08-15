@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.App {
+  text-align: center;
+  background-color: #7e2828;
+  
+  
+}
+
+
+body {
+  /* background-color: #068c6dc3; */
+  /* background-color: #1e826f; */
+  /* background-color: #e1f1ee; */
+  background-color: #022c22; 
+
+
+  margin: 0;
+  padding: 0;
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+/* .navbar-tab {
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid transparent; 
+  transition: background-color 0.3s ease;
+  margin-bottom: 5rem;
+}
+
+.navbar-tab:hover {
+  background-color: #0b8367; 
+} */
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.new-user-form {
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+  padding-right: calc((100% - 35%) / 2); 
+  padding-left: calc((100% - 35%) / 2); 
+}

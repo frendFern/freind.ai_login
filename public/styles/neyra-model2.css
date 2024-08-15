@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Montserrat', sans-serif; 
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+img {
+    width: 95vw;
+    height: 87vh; 
+    margin-top: -3%; 
+    border-radius: 25px;
+}
+
+audio {
+    position: absolute;
+    top: 100px; 
+    left: 10px; 
+    z-index: 100; 
+}
+
+
+#frend-chat-response-holder{
+    position: absolute;
+    left: 0%;
+    bottom: -134px;
+    width: 100%;
+    height: 200px;
+    padding-left: 100px;
+    padding-right: 100px;
+    line-height: 17px;
+    text-align: left;
+    font-size: 14px;
+    overflow-y: auto;
+    z-index: 10000;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+}
+
+#frend-chat-response-holder::-webkit-scrollbar {
+    display: none; 
+  }
+
+
+#frend-chat-messages-holder{
+
+    font-size:17px;
+}
+
+.frend-user-msg,
+#frend-chat-messages-holder .frend-user-msg{
+    color: black;
+   
+}
+
+.frend-user{
+    font-weight: bold;
+}
+
+h3 {
+    text-align: center;
+    margin: 1%;
+
+}
+
+#frend-chat-messages-box{
+    overflow-y: auto;
+    height: 80%;
+    z-index: 1003;
+    /* background-color: #000000; */
+}
+
+/* chat */
+#frend-chat-messages{
+    position: absolute;
+    width: 500px;
+    height: 70px;
+    bottom: 70px;
+    /* transform: translateX(-50%); */
+    left: 110px;
+    z-index: 9999;
+    color: black;
+}
+
+#frend-model-view{
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    background: transparent !important;
+    z-index: 101;
+}
+
+#frend-chat-messages-box::-webkit-scrollbar {
+    display: none; 
+}
+
+.main-container{
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding-top: 6.5%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    outline: none;
+}
+
+#frend-chat-messages li {
+    list-style-type: none;
+}
+
+#frend-canvas {
+    z-index: 10000;
+    border-radius: 20px;
+}

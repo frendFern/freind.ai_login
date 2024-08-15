@@ -1,0 +1,101 @@
+{
+  "Version": 3,
+  "FileReferences": {
+    "Moc": "Russell-Fellow.moc3",
+    "Textures": [
+      "Russell-Fellow.2048/texture_00.png"
+    ],
+    "Physics": null,
+    "Expressions": [],
+    "Motions": {
+      "": [
+        {
+          "File": "motions/act_egao_w.motion3.json"
+        },
+        {
+          "File": "motions/act_ikaru.motion3.json"
+        },
+        {
+          "File": "motions/act_ikaru_w.motion3.json"
+        },
+        {
+          "File": "motions/act_nayamu.motion3.json"
+        },
+        {
+          "File": "motions/act_nayamu_w.motion3.json"
+        },
+        {
+          "File": "motions/act_normal_w.motion3.json"
+        },
+        {
+          "File": "motions/act_odoroku_w.motion3.json"
+        },
+        {
+          "File": "motions/act_tameiki.motion3.json"
+        },
+        {
+          "File": "motions/act_unazuku.motion3.json"
+        },
+        {
+          "File": "motions/add_select_C.motion3.json"
+        },
+        {
+          "File": "motions/add_select_L.motion3.json"
+        },
+        {
+          "File": "motions/add_select_R.motion3.json"
+        },
+        {
+          "File": "motions/face_egao_w.motion3.json"
+        },
+        {
+          "File": "motions/face_ikaru.motion3.json"
+        },
+        {
+          "File": "motions/face_ikaru_w.motion3.json"
+        },
+        {
+          "File": "motions/face_nayamu.motion3.json"
+        },
+        {
+          "File": "motions/face_nayamu_w.motion3.json"
+        },
+        {
+          "File": "motions/face_normal_w.motion3.json"
+        },
+        {
+          "File": "motions/face_odoroku_w.motion3.json"
+        },
+        {
+          "File": "motions/face_talk_large.motion3.json"
+        },
+        {
+          "File": "motions/face_talk_normal.motion3.json"
+        },
+        {
+          "File": "motions/face_talk_off.motion3.json"
+        },
+        {
+          "File": "motions/face_talk_small.motion3.json"
+        }
+      ]
+    }
+  },
+  "Groups": [
+    {
+      "Target": "Parameter",
+      "Name": "EyeBlink",
+      "Ids": [
+        "ParamEyeLOpen",
+        "ParamEyeROpen"
+      ]
+    },
+    {
+      "Target": "Parameter",
+      "Name": "LipSync",
+      "Ids": [
+        "ParamMouthOpenY"
+      ]
+    }
+  ]
+}
